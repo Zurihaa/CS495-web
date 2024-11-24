@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration QR Generator</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Screen 1: Registration Form -->
+    <div class="container screen active" id="screen1">
+        <h1>Event Registration</h1>
+        <form id="eventForm">
+            <div>
+                <label for="clubName">Club Name</label>
+                <input type="text" id="clubName" required>
+            </div>
+            <div>
+                <label for="eventName">Event Name</label>
+                <input type="text" id="eventName" required>
+            </div>
+            <div>
+                <label for="time">Time</label>
+                <input type="time" id="time" required>
+            </div>
+            <div>
+                <label for="location">Location</label>
+                <input type="text" id="location" required>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea id="description" rows="3" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="container screen" id="screen2">
+        <h1>Event Registration</h1>
+        <p>Here is your QR code for the event:</p>
+        <div class="qr-code" id="qrCode"></div>
+        <p>Do you want to include QR code in your poster?</p>
+        <div class="button-container">
+            <button onclick="goToScreen(3)">Yes</button>
+            <button onclick="resetForm()">No</button>
+        </div> 
+    </div>
+
+    <div class="container screen" id="screen3">
+        <h1>Event Registration</h1>
+        <p>Please upload your media file here</p>
+        <div class="upload-area" id="uploadArea">
+            <p>Upload your file here</p>
+        </div>
+        <p class="note">Note: QR code will be at the bottom-right corner</p>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+    </div>
+
+    <div class="container screen" id="screen4">
+        <h1>Event Registration</h1>
+        <p>Here is your QR code for the event:</p>
+        <div class="preview-image">
+            <img id="finalPreview" src="" alt="Final preview">
+        </div>
+        <button onclick="downloadImage()">Download File</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
